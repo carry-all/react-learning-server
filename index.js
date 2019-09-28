@@ -1,9 +1,10 @@
 const express = require('express');
-let cors = require('cors');
-
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 
 const game = {
     field: [
@@ -23,7 +24,7 @@ app.get('/info', function(req, res) {
     res.send(game);
 });
 
-app.post('move', function(req, res) {
+app.post('/move', function(req, res) {
     res.send("I've moved");
 });
 
