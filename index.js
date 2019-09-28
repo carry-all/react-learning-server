@@ -2,11 +2,22 @@ const express = require('express');
 
 const app = express();
 
-let counter = 0;
+const game = {
+    field: [
+        [0, 0, 0, 0, 0, 0, ],
+        [1, 0, 0, 0, 0, 0, ],
+        [0, 0, 0, 0, 0, 0, ],
+        [1, 0, 0, 0, 0, 0, ],
+        [2, 1, 0, 0, 0, 0, ],
+        [2, 2, 1, 0, 0, 0, ],
+        [0, 0, 0, 0, 0, 0, ],
+      ],
+      currentPlayer: 2,
+      winner: 0
+};
 
 app.get('/info', function(req, res) {
-    res.send('Hello my friend ' + counter);
-    counter++;
+    res.send(game);
 });
 
 app.post('move', function(req, res) {
