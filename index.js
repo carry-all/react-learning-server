@@ -25,7 +25,7 @@ app.get('/info', function(req, res) {
 });
 
 app.post('/move', function(req, res) {
-    res.send("I've moved");
+    res.send(req.body);
 });
 
 app.listen(4000);
