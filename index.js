@@ -28,7 +28,11 @@ app.get('/info', function(req, res) {
 });
 
 app.post('/move', function(req, res) {
-    if (!req.body.column) {
+    if (!req.body) {
+        return;
+    }
+
+    if (!req.body.hasOwnProperty('column')) {
         return;
     }
 
